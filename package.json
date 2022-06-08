@@ -2,7 +2,7 @@
   "name": "@sebastiantuyu/versionify",
   "version": "0.1.2",
   "description": "A node.js library to handle versioning",
-  "files": ["index.js"],
+  "files": ["index.js", "README.md"],
   "scripts": {
     "test": "jest",
     "build": "tsc --project ."
