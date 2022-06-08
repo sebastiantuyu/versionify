@@ -1,6 +1,6 @@
 {
   "name": "versionify",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A node.js library to handle versioning",
   "files": ["dist/*", "dist/**/*.js"],
   "scripts": {
