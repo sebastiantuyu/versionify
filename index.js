@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const versionify = {
     nextPatch: function (version) {
         if (!this.isValid(version)) {
@@ -58,4 +57,4 @@ const versionify = {
         return /\d{1,2}\.\d{1,2}\.\d{1,3}/g.test(version);
     },
 };
-exports.default = versionify;
+module.exports = versionify;

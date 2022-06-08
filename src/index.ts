@@ -63,4 +63,4 @@ const versionify = {
   },
 };
 
-export default versionify;
+module.exports = versionify;
