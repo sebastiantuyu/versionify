@@ -1,57 +1,51 @@
 "use strict";
+const changeVersion = (version, patchModifier = 0, minorModifier = 0, majorModifier = 0) => {
+    const [major, minor, patch] = version.split(".").map(Number);
+    return `${major + majorModifier}.${minor + minorModifier}.${patch + patchModifier}`;
+};
+const throwIfNotValid = (version) => {
+    if (!versionify.isValid(version)) {
+        throw new Error("Version string is not properly formated");
+    }
+};
 const versionify = {
     nextPatch: function (version) {
-        if (!this.isValid(version)) {
-            throw new Error("Version string is not properly formated");
-        }
-        const [major, minor, patch] = version.split(".").map(Number);
-        return `${major}.${minor}.${patch + 1}`;
+        throwIfNotValid(version);
+        return changeVersion(version, 1, 0, 0);
     },
     nextMinor: function (version) {
-        if (!this.isValid(version)) {
-            throw new TypeError("Version string is not properly formated");
-        }
-        const [major, minor, patch] = version.split(".").map(Number);
-        return `${major}.${minor + 1}.${patch}`;
+        throwIfNotValid(version);
+        return changeVersion(version, 0, 1, 0);
     },
     nextMajor: function (version) {
-        if (!this.isValid(version)) {
-            throw new TypeError("Version string is not properly formated");
-        }
-        const [major, minor, patch] = version.split(".").map(Number);
-        return `${major + 1}.${minor}.${patch}`;
+        throwIfNotValid(version);
+        return changeVersion(version, 0, 0, 1);
     },
     setVersion: function (version) { },
     getVersion: function (version) { },
     previousPatch: function (version) {
-        if (!this.isValid(version)) {
-            throw new TypeError("Version string is not properly formated");
-        }
-        const [major, minor, patch] = version.split(".").map(Number);
+        throwIfNotValid(version);
+        const [, , patch] = version.split(".").map(Number);
         if (patch === 0) {
-            return `${major}.${minor}.${patch}`;
+            return version;
         }
-        return `${major}.${minor}.${patch - 1}`;
+        return changeVersion(version, -1, 0, 0);
     },
     previousMinor: function (version) {
-        if (!this.isValid(version)) {
-            throw new TypeError("Version string is not properly formated");
-        }
-        const [major, minor, patch] = version.split(".").map(Number);
+        throwIfNotValid(version);
+        const [, minor,] = version.split(".").map(Number);
         if (minor === 0) {
-            return `${major}.${minor}.${patch}`;
+            return version;
         }
-        return `${major}.${minor - 1}.${patch}`;
+        return changeVersion(version, 0, -1, 0);
     },
     previousMajor: function (version) {
-        if (!this.isValid(version)) {
-            throw new TypeError("Version string is not properly formated");
-        }
-        const [major, minor, patch] = version.split(".").map(Number);
+        throwIfNotValid(version);
+        const [major, ,] = version.split(".").map(Number);
         if (major === 0) {
-            return `${major}.${minor}.${patch}`;
+            return version;
         }
-        return `${major - 1}.${minor}.${patch}`;
+        return changeVersion(version, 0, 0, -1);
     },
     isValid: function (version) {
         return /\d{1,2}\.\d{1,2}\.\d{1,3}/g.test(version);
