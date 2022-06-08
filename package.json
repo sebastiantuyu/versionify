@@ -1,8 +1,8 @@
 {
   "name": "@sebastiantuyu/versionify",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "description": "A node.js library to handle versioning",
-  "files": ["dist/index.js", "README.md"],
+  "files": ["index.js", "README.md"],
   "scripts": {
     "test": "jest",
     "build": "tsc --project ."
