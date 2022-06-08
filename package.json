@@ -1,0 +1,22 @@
+{
+  "name": "@sebastiantuyu/versionify",
+  "version": "0.0.1",
+  "description": "A node.js library to handle versioning",
+  "files": ["dist/*", "dist/**/*.js"],
+  "scripts": {
+    "test": "jest",
+    "build": "tsc --project ."
+  },
+  "keywords": [
+    "nodejs",
+    "versioning"
+  ],
+  "author": "Sebastian Tuyu",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-typescript": "^7.17.12",
+    "@types/jest": "^28.1.1",
+    "jest": "^28.1.1"
+  }
+}
