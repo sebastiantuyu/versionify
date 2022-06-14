@@ -2,8 +2,12 @@
 import versionify from ".";
 
 describe("Should parse properly version string", () => {
+  it("next patch but from package json", () => {
+    expect(versionify.nextPatch()).toBe("1.2.4");
+  });
+
   it("next patch", () => {
-    expect(versionify.nextPatch("1.2.3", true)).toBe("1.2.4");
+    expect(versionify.nextPatch("1.2.3")).toBe("1.2.4");
   });
 
   it("next minor", () => {

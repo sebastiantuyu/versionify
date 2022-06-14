@@ -13,6 +13,9 @@ First, install it with
 ```
   const versionify = require("@sebastiantuyu/versionify");
 
+  // Calling a function with NO parameters will also update the package.json!
+  versionify.nextPatch() --> upgrade the version to the next patch in the package.json
+
   // Passing true as second argument will modify the package.json!
   versionify.nextPatch("1.0.0", true) --> package.json is upgraded
 
