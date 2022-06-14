@@ -1,11 +1,12 @@
 {
   "name": "@sebastiantuyu/versionify",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A node.js library to handle versioning",
   "files": ["index.js", "README.md"],
   "scripts": {
     "test": "jest",
-    "build": "tsc --project ."
+    "build": "tsc --project .",
+    "prepublish": "npm run build && git add package.json && git commit -m 'chore: bump version'"
   },
   "keywords": [
     "nodejs",
