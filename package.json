@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "tsc --project .",
-    "prepublish": "npm run build && git add package.json && git commit -m 'chore: bump version'"
+    "prepublish": "npm run build && git add package.json && git add index.js && git commit -m 'chore: bump version'"
   },
   "keywords": [
     "nodejs",
