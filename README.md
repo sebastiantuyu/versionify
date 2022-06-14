@@ -2,6 +2,8 @@
 
 > Handle more easier your string version on node.js
 
+In version <code>0.2.0</code> supports <code>package.json</code> versioning!
+
 ## How to use it?
 First, install it with
 ```
@@ -11,6 +13,10 @@ First, install it with
 ```
   const versionify = require("@sebastiantuyu/versionify");
 
+  // Passing true as second argument will modify the package.json!
+  versionify.nextPatch("1.0.0", true) --> package.json is upgraded
+
+  // By default will only return the modified string
   versionify.nextPatch("1.0.0") // 1.0.1
   versionify.nextMinor("1.0.0") // 1.1.0
   versionify.nextMajor("1.0.0") // 2.0.0
